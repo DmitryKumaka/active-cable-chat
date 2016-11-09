@@ -1,0 +1,25 @@
+<%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "logout_header" %>
+
+
+<h4 class="text-center">Signed in as: <%= check_username(current_user) %></h4>
+
+<h2>Other registered users:</h2>
+
+<% @users.each do |user| %>
+    <div class="user">
+      <div class="user-status" data=<%= user.id %>>
+        <% if user.appear == true %>
+            <div class="status" style="background-color: deepskyblue;"></div>
+        <% else %>
+            <div class="status" style="background-color: white;"></div>
+        <% end %>
+      </div>
+      <div class="user-email">
+        <%= check_username(user) %>
+      </div>
+      <div class="user-button">
+        <%= button_to "open chat", rooms_path, params: {sender_id: current_user.id, recipient_id: user.id}, class: 'btn btn-primary btn-chat' %>
+      </div>
+    </div>
+<% end %>
+

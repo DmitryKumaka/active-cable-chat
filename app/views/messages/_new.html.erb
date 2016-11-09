@@ -1,0 +1,9 @@
+<div class="new-message">
+  <%= simple_form_for message, remote: true do |f| %>
+
+      <%= f.input :content, as: :text, required: true, label: false, placeholder: 'Write your message hear...' %>
+      <%= hidden_field_tag(:room_id, @room.id) %>
+
+      <%= f.button :submit, 'send', class: 'btn btn-primary btn-message' %>
+  <% end %>
+</div>

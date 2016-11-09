@@ -1,0 +1,24 @@
+
+<%= link_to '<< Back', root_path %>
+
+<div class="header" current-user="<%= check_username(current_user) %>" recipient="<%= check_username(@reciever) %>">
+  <h2 class="text-center">Chat</h2>
+  <h4 class="text-center"><%= check_username(current_user) %> To: <%= check_username(@reciever) %> </h4>
+</div>
+
+
+<div class="chat" id=<%= @room.id %> user-id=<%= current_user.id %>>
+  <div class="message-block">
+    <% @messages.each do |message| %>
+        <% if current_user.id ==  message.user_id %>
+            <div class="current-user-message"><%= check_username(current_user) %></div>
+            <div class="curr-msg-cont"><%= message.content %></div>
+        <% else %>
+            <div class="recipient-message"><%= check_username(@reciever) %></div>
+            <div class="res-msg-cont"><%= message.content %></div>
+        <% end %>
+    <% end %>
+  </div>
+  <%= render 'messages/new', message: @message  %>
+</div>
+
