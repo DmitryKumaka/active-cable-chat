@@ -52,6 +52,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
+gem 'redis', '~> 3.0'
 
 group :production do
   gem 'pg', '0.18.1'
