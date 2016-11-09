@@ -5,7 +5,6 @@ class AppearanceChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    disappear
   end
 
   def appear
